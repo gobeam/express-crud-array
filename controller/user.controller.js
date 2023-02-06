@@ -1,4 +1,4 @@
-const users = [];
+const users = require("../model/user");
 
 const store = (req, resp) => {
   const user = req.body;
@@ -43,4 +43,11 @@ const destroy = (req, resp) => {
   resp.status(204).json({
     message: "User deleted successfully",
   });
+};
+
+module.exports = {
+  store,
+  get,
+  update,
+  destroy,
 };
