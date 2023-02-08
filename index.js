@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+
+require("./config/database");
 const routes = require("./routes");
 
 const app = express();
@@ -13,8 +15,12 @@ app.use((req, resp, next) => {
   next();
 });
 
-app.use('/', routes)
+app.use("/", routes);
 
 app.listen(port, () => {
   console.log("Application is running on port: ", port);
 });
+
+(() => {
+  console.log("hello world");
+})();
