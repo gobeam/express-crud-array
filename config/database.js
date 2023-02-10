@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// connect mongodb database
 (async () => {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/express-crud", {
@@ -11,5 +12,6 @@ const mongoose = require("mongoose");
   }
 })();
 
+// register model
 require('../model/user');
 
