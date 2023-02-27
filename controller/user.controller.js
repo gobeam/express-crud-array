@@ -23,12 +23,26 @@ const getAllUser = async (req, resp) => {
 const updateUser = async (req, resp) => {
   const data = req.body;
   const id = req.params.id;
-  const result = await UserModel.findOneAndUpdate({ _id: id}, data)
+  const result = await UserModel.findOneAndUpdate({ _id: id }, data);
   resp.status(200).json(result);
 };
+
+const destroyUser = async (req, resp) => {
+  const id = req.params.id;
+  await UserModel.findByIdAndDelete(id);
+  resp.status(204).json();
+};
+
+const getUserById = async (req, resp) => {
+  const id = req.params.id;
+  const result = await UserModel.findById(id);
+  resp.status(200).json(result);
+}
 
 module.exports = {
   storeUser,
   getAllUser,
   updateUser,
+  destroyUser,
+  getUserById,
 };
