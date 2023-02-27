@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const UserModel = mongoose.model("User");
 
 // store user
-const store = async (req, resp) => {
+const storeUser = async (req, resp) => {
   const data = req.body;
   let user = new UserModel();
   user.firstName = data.firstName;
@@ -20,7 +20,15 @@ const getAllUser = async (req, resp) => {
   resp.status(200).json(users);
 };
 
+const updateUser = async (req, resp) => {
+  const data = req.body;
+  const id = req.params.id;
+  const result = await UserModel.findOneAndUpdate({ _id: id}, data)
+  resp.status(200).json(result);
+};
+
 module.exports = {
-  store,
+  storeUser,
   getAllUser,
+  updateUser,
 };
