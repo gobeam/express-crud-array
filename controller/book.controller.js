@@ -1,4 +1,14 @@
-const storeBook = async (req, res) => {};
+const mongoose = require("mongoose");
+const BookModel = mongoose.model("Book");
+
+const storeBook = async (req, res) => {
+  const data = req.body;
+    let book = new BookModel({
+        ...data
+    });
+    await book.save();
+    res.status(201).json(book);
+};
 
 const getAllBook = async (req, res) => {};
 
