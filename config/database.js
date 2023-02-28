@@ -14,4 +14,5 @@ const mongoose = require("mongoose");
 
 // register model
 require('../model/user');
+require('../model/book');
 

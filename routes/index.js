@@ -14,4 +14,10 @@ router.put("/user/:id", updateUser);
 router.delete('/user/:id', destroyUser);
 router.get('/user/:id', getUserById);
 
+router.post('/book', storeBook);
+router.get('/book', getAllBook);
+router.get('/book/:id', getBookById);
+router.put('/book/:id', updateBook);
+router.delete('/book/:id', destroyBook);
+
 module.exports = router;
