@@ -1,7 +1,6 @@
 const errorHandlerMiddleware = (err, req, res, next) => {
   let formattedError = {};
   if (err.isJoi) {
-    console.log(err.details);
     for (const validationErr of err.details) {
       formattedError[validationErr.context.label] = validationErr.message;
     }
