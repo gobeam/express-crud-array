@@ -16,8 +16,11 @@ const {
 } = require("../controller/book.controller");
 
 const { bookValidator } = require("../validator/book-store.validator");
+const {
+  userRegisterMiddleware,
+} = require("../validator/user-register.validator");
 
-router.post("/user", storeUser);
+router.post("/user", userRegisterMiddleware, storeUser);
 router.get("/user", getAllUser);
 router.put("/user/:id", updateUser);
 router.delete("/user/:id", destroyUser);

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const UserModel = mongoose.model("User");
+const bcrypt = require("bcrypt");
 
 // store user
 const storeUser = async (req, resp) => {
@@ -10,7 +11,9 @@ const storeUser = async (req, resp) => {
   user.email = data.email;
   user.address = data.address;
   user.phone = data.phone;
-  user.password = data.password;
+  let salt = await bcrypt.genSalt(10);
+  user.password = await bcrypt.hash(data.password, salt);
+  bcrypt.compare()
   await user.save();
   resp.status(201).json(user);
 };
