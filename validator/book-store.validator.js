@@ -4,8 +4,8 @@ const bookSchema = Joi.object({
   title: Joi.string().required(),
   description: Joi.string().required(),
   author: Joi.string().required(),
-  totalPages: Joi.number().integer().required(),
-  price: Joi.number().required(),
+  totalPages: Joi.number().strict().positive().required(),
+  price: Joi.number().strict().positive().required(),
 });
 
 const bookValidator = (req, res, next) => {

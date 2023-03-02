@@ -10,6 +10,7 @@ const storeUser = async (req, resp) => {
   user.email = data.email;
   user.address = data.address;
   user.phone = data.phone;
+  user.password = data.password;
   await user.save();
   resp.status(201).json(user);
 };
