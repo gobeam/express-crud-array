@@ -13,7 +13,6 @@ const storeUser = async (req, resp) => {
   user.phone = data.phone;
   let salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(data.password, salt);
-  bcrypt.compare()
   await user.save();
   resp.status(201).json(user);
 };

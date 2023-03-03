@@ -5,7 +5,9 @@ const errorHandlerMiddleware = (err, req, res, next) => {
       formattedError[validationErr.context.label] = validationErr.message;
     }
   } else {
-    formattedError = err;
+    formattedError = {
+      message: err.message || "something went wrong",
+    };
   }
   res.status(422).json(formattedError);
 };
