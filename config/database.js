@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // connect mongodb database
 (async () => {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/express-crud", {
+    await mongoose.connect(`mongodb://${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}`, {
       useNewUrlParser: true,
     });
     console.log("Connected with mongodb");

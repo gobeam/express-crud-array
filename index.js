@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 
 // body-parser is used to parse the body of the request
@@ -11,7 +12,7 @@ require("./config/database");
 const routes = require("./routes");
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 // body-parser middleware
 app.use(bodyParser.json());
