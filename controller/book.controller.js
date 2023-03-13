@@ -5,6 +5,7 @@ const storeBook = async (req, res) => {
   const data = req.body;
   let book = new BookModel({
     ...data,
+    createdBy: req.user.id
   });
   await book.save();
   res.status(201).json(book);

@@ -16,6 +16,9 @@ const BookSchema = new mongoose.Schema({
   price: {
     type: Number,
   },
+  createdBy: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model("Book", BookSchema);
