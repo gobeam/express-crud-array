@@ -13,6 +13,10 @@ const routes = require("./routes");
 
 const app = express();
 const port = process.env.PORT || 4000;
+const cors = require("cors");
+
+// enable cors
+app.use(cors());
 
 // body-parser middleware
 app.use(bodyParser.json());
