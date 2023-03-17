@@ -14,7 +14,7 @@ const {
   updateBook,
   destroyBook,
 } = require("../controller/book.controller");
-const { login } = require("../controller/auth.controller");
+const { login, getProfile } = require("../controller/auth.controller");
 
 const { bookValidator } = require("../validator/book-store.validator");
 const {
@@ -26,6 +26,7 @@ const {
   authenticateMiddleware,
 } = require("../middleware/authentication.middleware");
 router.post("/auth/login", loginValidator, login);
+router.get("/profile",authenticateMiddleware, getProfile);
 router.post("/user", userRegisterMiddleware, storeUser);
 router.get("/user",authenticateMiddleware, getAllUser);
 router.put("/user/:id",authenticateMiddleware, updateUser);
